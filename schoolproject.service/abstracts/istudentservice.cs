@@ -9,6 +9,8 @@ namespace schoolproject.service.abstracts
     {
 
         public Task<List<Student>> GetStudentsListAsync();
+        public Task<Student> GetStudentbyidtAsync(int id);
+        public Task<List<Student>> GetStudentbyarrAsync();
 
 
     }

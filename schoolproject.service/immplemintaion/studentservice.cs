@@ -17,6 +17,17 @@ namespace schoolproject.service.immplemintaion
             
            _studentrepository = studentrepository;
         }
+
+        public async Task<List<Student>> GetStudentbyarrAsync()
+        {
+            return await _studentrepository.GetStudentbyarrAsync();
+        }
+
+        public async Task<Student> GetStudentbyidtAsync(int id)
+        {
+            return await _studentrepository.GetStudentbyidtAsync(id);
+        }
+
         public async Task<List<Student>> GetStudentsListAsync()
         {
             return await _studentrepository.GetStudentsListAsync();

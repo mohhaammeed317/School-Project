@@ -10,7 +10,11 @@ namespace schoolproject.core
 
         public static IServiceCollection AddCOREDependencies(this IServiceCollection services)
         {
+            //config of MediatR
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+            //config of AutoMapper
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
             return services;
         }
 

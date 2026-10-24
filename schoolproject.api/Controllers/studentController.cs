@@ -24,6 +24,24 @@ namespace schoolproject.api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("/student/listmap")]
+        public async Task<IActionResult> GetspecificparamaStudentsAsync()
+        {
+            var query = new getspecificattributefromstdudent();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+        [HttpGet("/student/getbyid/{id}")]
+        public async Task<IActionResult> GetStudentsbyid([FromRoute] int id)
+        {
+        
+            var result = await _mediator.Send(new getstudentbyidquery(id));
+            return Ok(result);
+        }
+
+
+
 
     }
 }
