@@ -10,10 +10,12 @@ namespace schoolproject.core.mapping.studentmapping
     public partial class studentprofile: Profile 
     {
 
-        //partial classes must  have the same name and have same name spaces
+        //partial classes must  have the same name and have same name spaces 
         public studentprofile()
         {
+
             stdmapping();
+            getstdbyidmapping();
 
         }
 

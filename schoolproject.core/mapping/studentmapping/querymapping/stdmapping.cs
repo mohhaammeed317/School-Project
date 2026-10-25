@@ -10,7 +10,7 @@ namespace schoolproject.core.mapping.studentmapping
     {
         public void stdmapping()
         {
-            //when he excute the fun of handler whenhe read this line( var stdlistmapper = _mapper.Map<List<getspecificattributefromstd>>(stdlist);)
+            //when he excute the fun of handler when he read this line( var stdlistmapper = _mapper.Map<List<getspecificattributefromstd>>(stdlist);)
             //he comes her
             //create map between <source,des>
             //sorce here is name of entity

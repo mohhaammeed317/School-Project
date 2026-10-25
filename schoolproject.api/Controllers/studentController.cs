@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using schoolproject.core;
 using schoolproject.core.feature.student.query.model;
+using schoolproject.data.appmetadata;
 
 namespace schoolproject.api.Controllers
 {
-    [Route("api/[controller]")]
+   // [Route("api/[controller]")]
     [ApiController]
     public class studentController : ControllerBase
     {
@@ -16,7 +17,7 @@ namespace schoolproject.api.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("/student/list")]
+        [HttpGet(router.studentrouting.getstudentlist)]
         public async Task<IActionResult> GetStudentsListAsync()
         {
             var query = new getstudentlistquery();
@@ -24,7 +25,7 @@ namespace schoolproject.api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/student/listmap")]
+        [HttpGet(router.studentrouting.getstudentbyarr)]
         public async Task<IActionResult> GetspecificparamaStudentsAsync()
         {
             var query = new getspecificattributefromstdudent();
@@ -32,11 +33,11 @@ namespace schoolproject.api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/student/getbyid/{id}")]
+        [HttpGet(router.studentrouting.getstudentbyid )]
         public async Task<IActionResult> GetStudentsbyid([FromRoute] int id)
         {
         
-            var result = await _mediator.Send(new getstudentbyidquery(id));
+            var result = await _mediator.Send(new getstudentbyidquery(id));//{Id=id}); mmkn a3ml kda lw na msh 3ayz a3ml constructor f l model
             return Ok(result);
         }
 
