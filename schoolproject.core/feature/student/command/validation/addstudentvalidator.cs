@@ -7,8 +7,8 @@ public class addstudentvalidator : AbstractValidator<addstudentcommand>
 {
     public addstudentvalidator()
     {
-        
-        
+        applyvalidatorrules();
+
     }
     public void applyvalidatorrules()
     {

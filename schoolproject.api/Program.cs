@@ -1,6 +1,7 @@
 //using Fluent.Infrastructure.FluentModel;
 using Microsoft.EntityFrameworkCore;
 using schoolproject.core;
+using schoolproject.core.middleware;
 using schoolproject.infrastructure;
 using schoolproject.infrastructure.abstracts;
 using schoolproject.infrastructure.data;
@@ -45,6 +46,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 
