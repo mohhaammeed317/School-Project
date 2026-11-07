@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="12.2.0" />
     <PackageReference Include="MediatR" Version="14.2.0" />
   </ItemGroup>
 
@@ -15,13 +16,6 @@
     <ProjectReference Include="..\schoolproject.data\schoolproject.data.csproj" />
     <ProjectReference Include="..\schoolproject.infrastructure\schoolproject.infrastructure.csproj" />
     <ProjectReference Include="..\schoolproject.service\schoolproject.service.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="feature\student\command\handel\" />
-    <Folder Include="feature\student\command\model\" />
-    <Folder Include="feature\student\command\validation\" />
-    <Folder Include="mapping\studentmapping\commandmapping\" />
   </ItemGroup>
 
 </Project>

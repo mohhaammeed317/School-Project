@@ -6,7 +6,8 @@ namespace schoolproject.data.appmetadata
 {
     public static class router
     {
-          public const string singleroute =  "/{id}";
+        // [Route("api/[controller]")]
+        public const string singleroute =  "/{id}";
         public const string root = "api";
         public const string version = "v1";
         public const string rule = root + "/" + version + "/";
@@ -17,8 +18,11 @@ namespace schoolproject.data.appmetadata
             public const string getstudentlist = prefix +"/"+ "list";
             public const string getstudentbyid = prefix + "/" + "getbyid" + singleroute;
             public const string getstudentbyarr = prefix + "/" + "listmap";
+            public const string addstd = prefix + "/" + "addstd";
 
 
-        }
+        } 
+        
+        
     }
 }
