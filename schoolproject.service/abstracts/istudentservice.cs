@@ -12,6 +12,10 @@ namespace schoolproject.service.abstracts
         public Task<Student> GetStudentbyidtAsync(int id);
         public Task<List<Student>> GetStudentbyarrAsync();
         public Task<string> addsync(Student student);
+        public Task<bool> nameexist(string name);
+        public Task<string> updatestudent(Student student);
+        public Task<bool> isnameisexistexcludeself(string name,int id);
+        
 
 
     }

@@ -52,7 +52,15 @@ namespace schoolproject.api.Controllers
         public async Task<IActionResult> addstudent([FromBody] addstudentcommand student)
         {
         
-            var result = await Mediator.Send(student);//{Id=id}); mmkn a3ml kda lw na msh 3ayz a3ml constructor f l model
+            var result = await Mediator.Send(student);
+            return NewResult(result); 
+            //  return Ok(result);
+        }
+        [HttpPost(router.studentrouting.editstd )]
+        public async Task<IActionResult> editstudent([FromBody] editstudent student)
+        {
+        
+            var result = await Mediator.Send(student);
             return NewResult(result); 
             //  return Ok(result);
         }

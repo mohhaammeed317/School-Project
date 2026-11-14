@@ -19,6 +19,7 @@ namespace schoolproject.data.appmetadata
             public const string getstudentbyid = prefix + "/" + "getbyid" + singleroute;
             public const string getstudentbyarr = prefix + "/" + "listmap";
             public const string addstd = prefix + "/" + "addstd";
+            public const string editstd = prefix + "/" + "editstd";
 
 
         } 

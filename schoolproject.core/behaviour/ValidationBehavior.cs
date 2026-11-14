@@ -20,7 +20,7 @@ namespace schoolproject.core.behaviour
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
                 if (failures.Count != 0) {
-                    var message = failures.Select(x =>x.PropertyName+ ": " + x.ErrorMessage).FirstOrDefault();
+                    var message = failures.Select(x => x.ErrorMessage).FirstOrDefault();
 
                     throw new ValidationException(message);
 

@@ -82,5 +82,16 @@ namespace schoolproject.core.bases
                 Meta = Meta
             };
         }
+        public Response<T> updated<T>(T entity, object Meta = null)
+        {
+            return new Response<T>()
+            {
+                Data = entity,
+                StatusCode = System.Net.HttpStatusCode.OK,
+                Succeeded = true,
+              //  Message = "Created Successfully",
+                Meta = Meta
+            };
+        }
     }
 }

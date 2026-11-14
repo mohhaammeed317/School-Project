@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿//using System.ComponentModel.DataAnnotations;
+using FluentValidation;
 using System.Net;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;

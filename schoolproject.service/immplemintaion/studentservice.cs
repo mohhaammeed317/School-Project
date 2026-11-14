@@ -26,15 +26,35 @@ namespace schoolproject.service.immplemintaion
         public async Task<string> addsync(Student student)
         {
           //check if the name is exist in data base or nor
-          var std = _studentrepository.GetTableNoTracking().Where(x => x.Name.Equals(student.Name)).FirstOrDefault();
+         /* var std = _studentrepository.GetTableNoTracking().Where(x => x.Name.Equals(student.Name)).FirstOrDefault();
           if (std != null)
               return "name is alerady exisit";
-          else
+          else*/
             
               await  _studentrepository.AddAsync(student);
           return "added successrfully";
 
 
+        }
+
+        public async Task<bool> nameexist(string name)
+        {
+            //check if the name is exist in data base or nor
+            var std = _studentrepository.GetTableNoTracking().Where(x => x.Name.Equals(name)).FirstOrDefault();
+            if (std == null)
+                return true;
+            return false;    
+        }
+
+        public async Task<string> updatestudent(Student student)
+        {
+             await _studentrepository.UpdateAsync(student);
+             return "updated successrfully";
+        }
+
+        public async Task<bool> isnameisexistexcludeself(string name, int id)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Student> GetStudentbyidtAsync(int id)
