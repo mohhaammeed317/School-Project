@@ -30,7 +30,7 @@ public class editstudentvalidation : AbstractValidator<editstudent>
     public void customvalidation()
     {
         RuleFor(x=>x.Name).MustAsync(async (model,Key, CancellationToken) =>await _studentservice.isnameisexistexcludeself(Key,model.id))
-            .WithMessage("name already exist");
+            .WithMessage("name already exist"); 
     
     }
 }

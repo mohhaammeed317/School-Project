@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using schoolproject.data.entites;
 using schoolproject.infrastructure.abstracts;
 using schoolproject.service.abstracts;
@@ -54,8 +55,38 @@ namespace schoolproject.service.immplemintaion
 
         public async Task<bool> isnameisexistexcludeself(string name, int id)
         {
-            throw new NotImplementedException();
+            var std = await _studentrepository.GetTableNoTracking().Where(x => x.Name.Equals(name)&!x.StudID.Equals(id)).FirstOrDefaultAsync();
+            if (std == null)
+                return true;
+            return false;  
         }
+
+        public async Task<bool> checkondidusingid(int id)
+        {
+            var std =  await _studentrepository.GetTableNoTracking().Where(x => x.StudID.Equals(id)&x.DID.Equals(null)).FirstOrDefaultAsync();
+            if (std != null)
+                return true;
+            return false;
+
+        }
+
+        public async Task<string> deletestudent(Student  student)
+        {
+            var trans = _studentrepository.BeginTransaction();
+            try
+            {
+                await _studentrepository.DeleteAsync(student);
+                await trans.CommitAsync();
+                return "deleted successrfully";
+
+            }
+            catch
+            {
+                 await trans.RollbackAsync();
+                return "failed ";
+            }
+        }
+
 
         public async Task<Student> GetStudentbyidtAsync(int id)
         {

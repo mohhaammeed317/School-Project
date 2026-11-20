@@ -12,7 +12,7 @@ namespace schoolproject.core.bases
         {
 
         }
-        public Response<T> Deleted<T>()
+        public Response<T> Deleted<T>(string s)
         {
             return new Response<T>()
             {

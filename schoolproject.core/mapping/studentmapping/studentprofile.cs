@@ -18,6 +18,7 @@ namespace schoolproject.core.mapping.studentmapping
             getstdbyidmapping();
             addstdmapping();
             editstudentmapping();
+            deleteStudentMapping();
         }
 
 

@@ -11,6 +11,8 @@ public partial class studentprofile
             .ForMember(dest => dest.DID, opt => opt.MapFrom(src => src.department_id)).
         ForMember(dest => dest.Phone, opt => opt.MapFrom(src => src.phone_number)).
             ForMember(dest => dest.StudID, opt => opt.MapFrom(src => src.id));
+        // if you want to ignore the id 
+        //.formember(dest=>dest.studid,opt.ignore());
     }
    
     

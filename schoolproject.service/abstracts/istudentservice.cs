@@ -15,6 +15,8 @@ namespace schoolproject.service.abstracts
         public Task<bool> nameexist(string name);
         public Task<string> updatestudent(Student student);
         public Task<bool> isnameisexistexcludeself(string name,int id);
+        public Task<bool> checkondidusingid(int id);
+        public Task<string> deletestudent(Student  student);
         
 
 

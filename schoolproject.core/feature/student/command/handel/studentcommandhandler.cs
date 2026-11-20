@@ -7,7 +7,7 @@ using schoolproject.service.abstracts;
 
 namespace schoolproject.core.feature.student.command.handel;
 
-public class studentcommandhandler : ResponseHandler , IRequestHandler<addstudentcommand,Response<string>> , IRequestHandler<editstudent,Response<string>>
+public class studentcommandhandler : ResponseHandler , IRequestHandler<addstudentcommand,Response<string>> , IRequestHandler<editstudent,Response<string>>,IRequestHandler<deletcommand,Response<string>>
 {
     
     private readonly istudentservice _studentService;
@@ -37,7 +37,7 @@ public class studentcommandhandler : ResponseHandler , IRequestHandler<addstuden
 
     public async Task<Response<string>> Handle(editstudent request, CancellationToken cancellationToken)
     {
-        
+        // check if id is exist or not  
         var std= await _studentService.GetStudentbyidtAsync(request.id);
        if (std == null)
         {
@@ -45,15 +45,35 @@ public class studentcommandhandler : ResponseHandler , IRequestHandler<addstuden
         }
           
        var edit_std_mapp = _mapper.Map(request, std);
+       // var  edit_std_mapp  = _mapper.Map<std>(request);
        var result = await _studentService.updatestudent(edit_std_mapp);
        if (result == "updated successrfully")
        {
-           return updated("updated successrfully");
+           return Success($"updated successrfully{edit_std_mapp.StudID}");
        }
        else
        {
            return BadRequest<string>("something went wrong");
        }
+
+    }
+
+    public async Task<Response<string>> Handle(deletcommand request, CancellationToken cancellationToken)
+    {
+        var std= await _studentService.GetStudentbyidtAsync(request.Id);
+        if (std == null)
+        {
+            return NotFound<string>("student not found");
+        }
+
+        var result =await _studentService.deletestudent(std);
+        if (result == "deleted successrfully")
+            return Deleted<String>($"deleted successrfully{std.StudID}");
+
+          return  BadRequest<string>("failed");
+        
+
+  
 
     }
 }

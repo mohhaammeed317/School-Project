@@ -56,11 +56,19 @@ namespace schoolproject.api.Controllers
             return NewResult(result); 
             //  return Ok(result);
         }
-        [HttpPost(router.studentrouting.editstd )]
+        [HttpPut(router.studentrouting.editstd )]
         public async Task<IActionResult> editstudent([FromBody] editstudent student)
         {
         
             var result = await Mediator.Send(student);
+            return NewResult(result); 
+            //  return Ok(result);
+        }
+        [HttpDelete(router.studentrouting.deletestd )]
+        public async Task<IActionResult> deletstudent([FromRoute]int id)
+        {
+        
+            var result = await Mediator.Send(new deletcommand(id));
             return NewResult(result); 
             //  return Ok(result);
         }
