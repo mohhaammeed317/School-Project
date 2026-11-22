@@ -43,8 +43,8 @@ namespace schoolproject.api.Controllers
         [HttpGet(router.studentrouting.getstudentbyid )]
         public async Task<IActionResult> GetStudentsbyid([FromRoute] int id)
         {
-        
-            var result = await Mediator.Send(new getstudentbyidquery(id));//{Id=id}); mmkn a3ml kda lw na msh 3ayz a3ml constructor f l model
+            var res = new getstudentbyidquery(id);
+            var result = await Mediator.Send(res);//{Id=id}); mmkn a3ml kda lw na msh 3ayz a3ml constructor f l model
            return NewResult(result);
             // return Ok(result);
         }
@@ -55,6 +55,12 @@ namespace schoolproject.api.Controllers
             var result = await Mediator.Send(student);
             return NewResult(result); 
             //  return Ok(result);
+        }   
+        [HttpGet(router.studentrouting.getstudentpaginited)]
+        public async Task<IActionResult>getstudentpaginite([FromQuery]getstudentpaginatedlistquery query)
+        {
+            var result = await Mediator.Send(query);
+            return Ok(result);
         }
         [HttpPut(router.studentrouting.editstd )]
         public async Task<IActionResult> editstudent([FromBody] editstudent student)
@@ -72,6 +78,7 @@ namespace schoolproject.api.Controllers
             return NewResult(result); 
             //  return Ok(result);
         }
+        
 
 
 
