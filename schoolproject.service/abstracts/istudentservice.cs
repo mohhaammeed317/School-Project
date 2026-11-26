@@ -9,7 +9,7 @@ namespace schoolproject.service.abstracts
     {
 
         public Task<List<Student>> GetStudentsListAsync();
-        public Task<Student> GetStudentbyidtAsync(int id);
+        public Task<Student> GetStudentbyidwithincludetAsync(int id);
         public Task<List<Student>> GetStudentbyarrAsync();
         public Task<string> addsync(Student student);
         public Task<bool> nameexist(string name);
@@ -17,6 +17,10 @@ namespace schoolproject.service.abstracts
         public Task<bool> isnameisexistexcludeself(string name,int id);
         public Task<bool> checkondidusingid(int id);
         public Task<string> deletestudent(Student  student);
+        public Task<Student> GetStudentbyidAsync(int id);
+        public IQueryable<Student> getstudentquerable();
+        public IQueryable<Student> filterstudentpaginatedquerable(string search);
+
         
 
 

@@ -38,7 +38,7 @@ public class studentcommandhandler : ResponseHandler , IRequestHandler<addstuden
     public async Task<Response<string>> Handle(editstudent request, CancellationToken cancellationToken)
     {
         // check if id is exist or not  
-        var std= await _studentService.GetStudentbyidtAsync(request.id);
+        var std= await _studentService.GetStudentbyidAsync(request.id);
        if (std == null)
         {
             return NotFound<string>("student not found");
@@ -60,7 +60,7 @@ public class studentcommandhandler : ResponseHandler , IRequestHandler<addstuden
 
     public async Task<Response<string>> Handle(deletcommand request, CancellationToken cancellationToken)
     {
-        var std= await _studentService.GetStudentbyidtAsync(request.Id);
+        var std= await _studentService.GetStudentbyidAsync(request.Id);
         if (std == null)
         {
             return NotFound<string>("student not found");

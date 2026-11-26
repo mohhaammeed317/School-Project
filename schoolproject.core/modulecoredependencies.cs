@@ -24,7 +24,8 @@ namespace schoolproject.core
             // 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
-
+            
+            
             return services;
         }
 

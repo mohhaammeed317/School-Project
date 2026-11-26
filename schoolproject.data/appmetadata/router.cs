@@ -17,10 +17,11 @@ namespace schoolproject.data.appmetadata
             public const string prefix = rule + "student";
             public const string getstudentlist = prefix +"/"+ "list";
             public const string getstudentbyid = prefix + "/" + "getbyid" + singleroute;
-            public const string getstudentbyarr = prefix + "/" + "listmap";
+            public const string getstudentbyarr = prefix + "/" + "listwithanotherarrtribute";
             public const string addstd = prefix + "/" + "addstd";
             public const string editstd = prefix + "/" + "editstd";
             public const string deletestd = prefix + "/" + "deletestd"+singleroute;
+            public const string getstudentpaginited  = prefix + "/" + "getstudentpaginited";
 
 
         } 

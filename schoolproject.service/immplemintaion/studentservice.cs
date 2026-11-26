@@ -19,6 +19,8 @@ namespace schoolproject.service.immplemintaion
            _studentrepository = studentrepository;
         }
 
+
+
         public async Task<List<Student>> GetStudentbyarrAsync()
         {
             return await _studentrepository.GetStudentbyarrAsync();
@@ -87,8 +89,31 @@ namespace schoolproject.service.immplemintaion
             }
         }
 
+        public Task<Student> GetStudentbyidAsync(int id)
+        {
+            var std = _studentrepository.GetByIdAsync(id);
+            return std;
+        }
 
-        public async Task<Student> GetStudentbyidtAsync(int id)
+        public IQueryable<Student> getstudentquerable()
+        {
+            var res = _studentrepository.GetTableNoTracking().Include(x=>x.Department).AsQueryable();
+            return res;
+        }
+
+        public IQueryable<Student> filterstudentpaginatedquerable(string search)
+        {
+            var res = _studentrepository.GetTableNoTracking().Include(x=>x.Department).AsQueryable();
+            if (search != null)
+            {
+                var ser= res.Where(x => x.Name.Contains(search) || x.Address.Contains(search));
+                return ser;  
+            }
+         return res; 
+          
+        } 
+
+        public async Task<Student> GetStudentbyidwithincludetAsync(int id)
         {
             return await _studentrepository.GetStudentbyidtAsync(id);
         }
