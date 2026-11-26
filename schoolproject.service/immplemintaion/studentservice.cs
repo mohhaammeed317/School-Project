@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using schoolproject.data.entites;
+using schoolproject.data.helpers;
 using schoolproject.infrastructure.abstracts;
 using schoolproject.service.abstracts;
 
@@ -101,13 +102,33 @@ namespace schoolproject.service.immplemintaion
             return res;
         }
 
-        public IQueryable<Student> filterstudentpaginatedquerable(string search)
+        public IQueryable<Student> filterstudentpaginatedquerable(studentorderingenum order, string search)
         {
+          //  var ord;
             var res = _studentrepository.GetTableNoTracking().Include(x=>x.Department).AsQueryable();
             if (search != null)
             {
                 var ser= res.Where(x => x.Name.Contains(search) || x.Address.Contains(search));
                 return ser;  
+            }
+
+            switch (order)
+            {
+                case studentorderingenum.StudID:
+                  res = res.OrderBy(x => x.StudID);
+                    break;
+                case studentorderingenum.Name:
+                 res = res.OrderBy(x => x.Name);   
+                    break;
+                case studentorderingenum.Address:
+                  res = res.OrderBy(x => x.Address); 
+                    break;
+                case studentorderingenum.DepartmentName:
+                   res = res.OrderBy(x => x.Department.DName); 
+                    break;
+                default:
+                  res = res.OrderBy(x => x.StudID);
+                    break;
             }
          return res; 
           

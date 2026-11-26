@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using schoolproject.data.helpers;
 
 namespace schoolproject.service.abstracts
 {
@@ -19,7 +20,7 @@ namespace schoolproject.service.abstracts
         public Task<string> deletestudent(Student  student);
         public Task<Student> GetStudentbyidAsync(int id);
         public IQueryable<Student> getstudentquerable();
-        public IQueryable<Student> filterstudentpaginatedquerable(string search);
+        public IQueryable<Student> filterstudentpaginatedquerable(studentorderingenum order, string search);
 
         
 

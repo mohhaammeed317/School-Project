@@ -78,7 +78,7 @@ namespace schoolproject.core.feature.student.query.handel
         {
             Expression<Func<Student, getstudentpaginatedlist>> expression = e => new getstudentpaginatedlist(e.StudID,e.Name,e.Address,e.Department.DName);
             //var querable = _studentService.getstudentquerable();
-            var filterdres = _studentService.filterstudentpaginatedquerable(request.search);
+            var filterdres = _studentService.filterstudentpaginatedquerable(request.orderby,request.search);
             var res = await filterdres.Select(expression).ToPaginatedListAsync(request.PageNumber,request.PageSize);
             return res;
         }
