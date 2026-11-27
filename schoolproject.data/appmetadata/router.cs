@@ -25,6 +25,28 @@ namespace schoolproject.data.appmetadata
 
 
         } 
+
+        public static class departmentrouting
+        {
+            public const string prefix = rule + "department";
+            public const string getdepartmentlist = prefix + "/" + "list";
+            public const string getdepartmentbyid = prefix + "/" + "getbyid" + singleroute;
+            public const string adddepartment = prefix + "/" + "adddepartment";
+            public const string editdepartment = prefix + "/" + "editdepartment";
+            public const string deletedepartment = prefix + "/" + "deletedepartment" + singleroute;
+            public const string getdepartmentpaginited = prefix + "/" + "getdepartmentpaginited";
+        }
+
+        public static class subjectrouting
+        {
+            public const string prefix = rule + "subject";
+            public const string getsubjectlist = prefix + "/" + "list";
+            public const string getsubjectbyid = prefix + "/" + "getbyid" + singleroute;
+            public const string addsubject = prefix + "/" + "addsubject";
+            public const string editsubject = prefix + "/" + "editsubject";
+            public const string deletesubject = prefix + "/" + "deletesubject" + singleroute;
+            public const string getsubjectpaginited = prefix + "/" + "getsubjectpaginited";
+        }
         
         
     }
