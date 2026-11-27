@@ -20,4 +20,28 @@
     <ProjectReference Include="..\schoolproject.service\schoolproject.service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="resources\SharedResources.ar.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedResources.ar.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="resources\SharedResources.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedResources.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="resources\SharedResources.ar.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SharedResources.ar.resx</DependentUpon>
+    </Compile>
+    <Compile Update="resources\SharedResources.en.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SharedResources.en.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

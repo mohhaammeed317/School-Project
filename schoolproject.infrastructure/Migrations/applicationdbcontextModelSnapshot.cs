@@ -30,10 +30,14 @@ namespace schoolproject.infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DID"));
 
-                    b.Property<string>("DName")
+                    b.Property<string>("DNamear")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("DNameen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DID");
 
@@ -71,18 +75,26 @@ namespace schoolproject.infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudID"));
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Addressar")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("Addressen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("DID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Namear")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Nameen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -130,10 +142,14 @@ namespace schoolproject.infrastructure.Migrations
                     b.Property<DateTime>("Period")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SubjectName")
+                    b.Property<string>("SubjectNamear")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("SubjectNameen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SubID");
 

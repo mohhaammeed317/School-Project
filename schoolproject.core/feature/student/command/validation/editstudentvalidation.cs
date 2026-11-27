@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
+using Microsoft.Extensions.Localization;
 using schoolproject.core.feature.student.command.model;
+using schoolproject.core.resources;
 using schoolproject.service.abstracts;
 
 namespace schoolproject.core.feature.student.command.validation;
@@ -7,9 +9,11 @@ namespace schoolproject.core.feature.student.command.validation;
 public class editstudentvalidation : AbstractValidator<editstudent>
 {
     private readonly istudentservice  _studentservice;
-    public editstudentvalidation( istudentservice  studentservice)
+    private readonly IStringLocalizer<SharedResources> _localizer;
+    public editstudentvalidation( istudentservice  studentservice, IStringLocalizer<SharedResources> localizer)
     {
         this._studentservice = studentservice;
+        this._localizer = localizer;
 
         applyvalidatorrules();
         customvalidation();
@@ -18,19 +22,28 @@ public class editstudentvalidation : AbstractValidator<editstudent>
 
     public void applyvalidatorrules()
     {
-        RuleFor(x => x.Name).NotEmpty().WithMessage("name must be not empty")
-            .NotNull().WithMessage("name must be not null")
-            .MaximumLength(15).WithMessage("name must be less than 15 characters+");
+        RuleFor(x => x.Nameen).NotEmpty().WithMessage(_localizer[SharedResourcesKey.NotEmpty])
+            .NotNull().WithMessage(_localizer[SharedResourcesKey.Required])
+            .MaximumLength(15).WithMessage(_localizer[SharedResourcesKey.MaxLengthis15]);
 
-        RuleFor(x => x.Address).NotEmpty().WithMessage("{propertyname} must be not empty")
-            .NotNull().WithMessage("{propertyvalue} must be not null")
-            .MaximumLength(15).WithMessage("{propertyname} must be less than 15 characters");
+        RuleFor(x => x.Addressen).NotEmpty().WithMessage(_localizer[SharedResourcesKey.NotEmpty])
+            .NotNull().WithMessage(_localizer[SharedResourcesKey.Required])
+            .MaximumLength(15).WithMessage(_localizer[SharedResourcesKey.MaxLengthis15]);
+        RuleFor(x => x.Namear).NotEmpty().WithMessage(_localizer[SharedResourcesKey.NotEmpty])
+            .NotNull().WithMessage(_localizer[SharedResourcesKey.Required])
+            .MaximumLength(15).WithMessage(_localizer[SharedResourcesKey.MaxLengthis15]);
+
+        RuleFor(x => x.Addressar).NotEmpty().WithMessage(_localizer[SharedResourcesKey.NotEmpty])
+            .NotNull().WithMessage(_localizer[SharedResourcesKey.Required])
+            .MaximumLength(15).WithMessage(_localizer[SharedResourcesKey.MaxLengthis15]);
     }
 
     public void customvalidation()
     {
-        RuleFor(x=>x.Name).MustAsync(async (model,Key, CancellationToken) =>await _studentservice.isnameisexistexcludeself(Key,model.id))
-            .WithMessage("name already exist"); 
+        RuleFor(x=>x.Namear).MustAsync(async (model,Key, CancellationToken) =>await _studentservice.isnameisexistexcludeself(Key,model.id))
+            .WithMessage(_localizer[SharedResourcesKey.IsExist]); 
+        RuleFor(x=>x.Nameen).MustAsync(async (model,Key, CancellationToken) =>await _studentservice.isnameisexistexcludeself(Key,model.id))
+            .WithMessage(_localizer[SharedResourcesKey.IsExist]); 
     
     }
 }

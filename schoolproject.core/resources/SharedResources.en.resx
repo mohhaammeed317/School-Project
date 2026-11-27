@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Required" xml:space="preserve">
+        <value>this filed is required</value>
+    </data>
+    <data name="NotFound" xml:space="preserve">
+        <value>Not found</value>
+    </data>
+    <data name="Deleted" xml:space="preserve">
+        <value>Deleted successfully</value>
+    </data>
+    <data name="Created" xml:space="preserve">
+        <value>Created successfully</value>
+    </data>
+    <data name="Success" xml:space="preserve">
+        <value>Success</value>
+    </data>
+    <data name="NotEmpty" xml:space="preserve">
+        <value>This field cannot be empty</value>
+    </data>
+    <data name="Updated" xml:space="preserve">
+        <value>Updated successfully</value>
+    </data>
+    <data name="UnAuthorized" xml:space="preserve">
+        <value>You are not authorized</value>
+    </data>
+    <data name="BadRequest" xml:space="preserve">
+        <value>Bad request</value>
+    </data>
+    <data name="UnprocessableEntity" xml:space="preserve">
+        <value>Unprocessable entity</value>
+    </data>
+    <data name="MaxLengthis100" xml:space="preserve">
+        <value>Maximum length is 100 characters</value>
+    </data>
+    <data name="MaxLengthis15" xml:space="preserve">
+        <value>Maximum length is 15 characters</value>
+    </data>
+    <data name="IsExist" xml:space="preserve">
+        <value>Already exists</value>
+    </data>
+    <data name="IsNotExist" xml:space="preserve">
+        <value>Does not exist</value>
+    </data>
+    <data name="PasswordNotEqualConfirmPass" xml:space="preserve">
+        <value>Password and confirmation password do not match</value>
+    </data>
+    <data name="EmailISExist" xml:space="preserve">
+        <value>Email already exists</value>
+    </data>
+    <data name="UserNameIsExist" xml:space="preserve">
+        <value>Username already exists</value>
+    </data>
+    <data name="passwordchanged" xml:space="preserve">
+        <value>Password changed successfully</value>
+    </data>
+    <data name="passwordNOtcorrect" xml:space="preserve">
+        <value>Password is incorrect</value>
+    </data>
+    <data name="TokenIsExpired" xml:space="preserve">
+        <value>Token has expired</value>
+    </data>
+    <data name="TokenIsNotExpired" xml:space="preserve">
+        <value>Token has not expired</value>
+    </data>
+    <data name="AlgorithmIsWrong" xml:space="preserve">
+        <value>Algorithm is incorrect</value>
+    </data>
+    <data name="RefreshTokenIsNotFound" xml:space="preserve">
+        <value>Refresh token not found</value>
+    </data>
+    <data name="RefreshTokenIsExpired" xml:space="preserve">
+        <value>Refresh token has expired</value>
+    </data>
+    <data name="AddFailed" xml:space="preserve">
+        <value>Failed to add</value>
+    </data>
+    <data name="RoleIsUsed" xml:space="preserve">
+        <value>Role is already in use</value>
+    </data>
+    <data name="RoleNotExist" xml:space="preserve">
+        <value>Role does not exist</value>
+    </data>
+    <data name="UserIsNotFound" xml:space="preserve">
+        <value>User not found</value>
+    </data>
+    <data name="FailedToRemoveOldRoles" xml:space="preserve">
+        <value>Failed to remove old roles</value>
+    </data>
+    <data name="FailedToAddNewRoles" xml:space="preserve">
+        <value>Failed to add new roles</value>
+    </data>
+    <data name="FailedToUpdateUserRoles" xml:space="preserve">
+        <value>Failed to update user roles</value>
+    </data>
+    <data name="FailedToRemoveOldClaims" xml:space="preserve">
+        <value>Failed to remove old claims</value>
+    </data>
+    <data name="FailedToAddNewClaims" xml:space="preserve">
+        <value>Failed to add new claims</value>
+    </data>
+    <data name="FailedToUpdateClaims" xml:space="preserve">
+        <value>Failed to update claims</value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="Message" xml:space="preserve">
+        <value>Message</value>
+    </data>
+    <data name="SendEmailFailed" xml:space="preserve">
+        <value>Failed to send email</value>
+    </data>
+    <data name="EmailNotConfirmed" xml:space="preserve">
+        <value>Email is not confirmed</value>
+    </data>
+    <data name="FaildToAddUser" xml:space="preserve">
+        <value>Failed to add user</value>
+    </data>
+    <data name="TryToRegisterAgain" xml:space="preserve">
+        <value>Please try registering again</value>
+    </data>
+    <data name="ErrorWhenConfirmEmail" xml:space="preserve">
+        <value>Error when confirming email</value>
+    </data>
+    <data name="ConfirmEmailDone" xml:space="preserve">
+        <value>Email confirmed successfully</value>
+    </data>
+    <data name="TryAgainInAnotherTime" xml:space="preserve">
+        <value>Please try again later</value>
+    </data>
+    <data name="InvaildCode" xml:space="preserve">
+        <value>Invalid code</value>
+    </data>
+    <data name="Image" xml:space="preserve">
+        <value>Image</value>
+    </data>
+    <data name="InvaildImageSize" xml:space="preserve">
+        <value>Invalid image size</value>
+    </data>
+    <data name="InvaildImageExtension" xml:space="preserve">
+        <value>Invalid image extension</value>
+    </data>
+    <data name="FailedToUploadImage" xml:space="preserve">
+        <value>Failed to upload image</value>
+    </data>
+</root>

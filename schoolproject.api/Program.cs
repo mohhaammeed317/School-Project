@@ -1,5 +1,9 @@
 //using Fluent.Infrastructure.FluentModel;
+
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using schoolproject.core;
 using schoolproject.core.middleware;
 using schoolproject.infrastructure;
@@ -26,6 +30,26 @@ we replace this line by a line of code that will add all dependencies from the s
  */
 
 builder.Services.AddInfrastructureDependencies().AddServiceDependencies().AddCOREDependencies();
+#region Localization
+builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(opt => { opt.ResourcesPath = "";});
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    List<CultureInfo> supportedCultures = new List<CultureInfo>
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("de-DE"),
+        new CultureInfo("fr-FR"),
+        new CultureInfo("ar-EG")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture("en-US");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+#endregion
 
 
 
@@ -50,6 +74,11 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseHttpsRedirection();
+#region Localization Middleware
+var options = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(options.Value);
+#endregion
+
 
 app.UseAuthorization();
 

@@ -14,6 +14,6 @@ namespace schoolproject.core.feature.student.query.response
 
         public string? Address { get; set; }
 
-        public string? DepartmentName { get; set; }
+
     }
 }

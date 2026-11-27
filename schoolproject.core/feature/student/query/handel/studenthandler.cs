@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using schoolproject.core.wrappers;
+using Microsoft.Extensions.Localization;
+using schoolproject.core.resources;
 
 
 namespace schoolproject.core.feature.student.query.handel
@@ -24,7 +26,7 @@ namespace schoolproject.core.feature.student.query.handel
         private readonly istudentservice _studentService;
         private readonly IMapper _mapper;
 
-        public studenthandler(istudentservice studentService, IMapper mapper)
+        public studenthandler(istudentservice studentService, IMapper mapper, IStringLocalizer<SharedResources> localizer) : base(localizer)
         {
             _studentService = studentService;
             _mapper = mapper;
@@ -76,7 +78,7 @@ namespace schoolproject.core.feature.student.query.handel
 
         public async Task<PaginatedResult<getstudentpaginatedlist>> Handle(getstudentpaginatedlistquery request, CancellationToken cancellationToken)
         {
-            Expression<Func<Student, getstudentpaginatedlist>> expression = e => new getstudentpaginatedlist(e.StudID,e.Name,e.Address,e.Department.DName);
+            Expression<Func<Student, getstudentpaginatedlist>> expression = e => new getstudentpaginatedlist(e.StudID,e.Nameen,e.Addressen,e.Department.DNameen);
             //var querable = _studentService.getstudentquerable();
             var filterdres = _studentService.filterstudentpaginatedquerable(request.orderby,request.search);
             var res = await filterdres.Select(expression).ToPaginatedListAsync(request.PageNumber,request.PageSize);

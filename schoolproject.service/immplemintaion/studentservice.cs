@@ -44,7 +44,7 @@ namespace schoolproject.service.immplemintaion
         public async Task<bool> nameexist(string name)
         {
             //check if the name is exist in data base or nor
-            var std = _studentrepository.GetTableNoTracking().Where(x => x.Name.Equals(name)).FirstOrDefault();
+            var std = _studentrepository.GetTableNoTracking().Where(x => x.Nameen.Equals(name)||x.Namear.Equals(name)).FirstOrDefault();
             if (std == null)
                 return true;
             return false;    
@@ -58,7 +58,7 @@ namespace schoolproject.service.immplemintaion
 
         public async Task<bool> isnameisexistexcludeself(string name, int id)
         {
-            var std = await _studentrepository.GetTableNoTracking().Where(x => x.Name.Equals(name)&!x.StudID.Equals(id)).FirstOrDefaultAsync();
+            var std = await _studentrepository.GetTableNoTracking().Where(x => x.Nameen.Equals(name)&!x.StudID.Equals(id)||x.Namear.Equals(name)&!x.StudID.Equals(id)).FirstOrDefaultAsync();
             if (std == null)
                 return true;
             return false;  
@@ -108,7 +108,7 @@ namespace schoolproject.service.immplemintaion
             var res = _studentrepository.GetTableNoTracking().Include(x=>x.Department).AsQueryable();
             if (search != null)
             {
-                var ser= res.Where(x => x.Name.Contains(search) || x.Address.Contains(search));
+                var ser= res.Where(x => x.Nameen.Contains(search) || x.Addressen.Contains(search));
                 return ser;  
             }
 
@@ -118,13 +118,13 @@ namespace schoolproject.service.immplemintaion
                   res = res.OrderBy(x => x.StudID);
                     break;
                 case studentorderingenum.Name:
-                 res = res.OrderBy(x => x.Name);   
+                 res = res.OrderBy(x => x.Nameen);   
                     break;
                 case studentorderingenum.Address:
-                  res = res.OrderBy(x => x.Address); 
+                  res = res.OrderBy(x => x.Addressen); 
                     break;
                 case studentorderingenum.DepartmentName:
-                   res = res.OrderBy(x => x.Department.DName); 
+                   res = res.OrderBy(x => x.Department.DNameen); 
                     break;
                 default:
                   res = res.OrderBy(x => x.StudID);

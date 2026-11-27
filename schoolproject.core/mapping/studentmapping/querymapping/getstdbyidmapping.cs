@@ -15,8 +15,9 @@ namespace schoolproject.core.mapping.studentmapping
             //create map between <source,des>
             //sorce here is name of entity
             //for member is used to map the attribute name  in des to a specific attribute name in source
-            CreateMap<Student, getsinglestudent>().
-                           ForMember(dest => dest.DepartmentName, opt => opt.MapFrom(src => src.Department.DName));
+            CreateMap<Student, getsinglestudent>()
+                           .ForMember(dest=>dest.Name,opt=>opt.MapFrom(src=>src.Localize(src.Nameen,src.Namear)))
+                           .ForMember(dest=>dest.Address,opt=>opt.MapFrom(src=>src.Localize(src.Addressen,src.Addressar)));
         }
 
     }

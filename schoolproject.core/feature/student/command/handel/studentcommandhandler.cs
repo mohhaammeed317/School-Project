@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.Extensions.Localization;
 using schoolproject.core.bases;
 using schoolproject.core.feature.student.command.model;
+using schoolproject.core.resources;
 using schoolproject.data.entites;
 using schoolproject.service.abstracts;
 
@@ -12,10 +14,12 @@ public class studentcommandhandler : ResponseHandler , IRequestHandler<addstuden
     
     private readonly istudentservice _studentService;
     private readonly IMapper _mapper;
-    public studentcommandhandler(istudentservice studentService, IMapper mapper)
+    //private readonly IStringLocalizer _localizer;
+    public studentcommandhandler(istudentservice studentService, IMapper mapper, IStringLocalizer<SharedResources> localizer) : base(localizer)
     {
         _studentService = studentService;
         _mapper = mapper;
+      //  this._localizer = localizer;
     }
     
     

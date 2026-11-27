@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using schoolproject.data.commons;
 
 namespace schoolproject.data.entites
 {
-    public partial class Department
+    public partial class Department : GeneralLocaliztionEntity
     {
         public Department()
         {
@@ -15,7 +16,8 @@ namespace schoolproject.data.entites
         [Key]
         public int DID { get; set; }
         [StringLength(500)]
-        public string DName { get; set; }
+        public string DNamear { get; set; } 
+        public string DNameen { get; set; } 
         public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<DepartmetSubject> DepartmentSubjects { get; set; }
     }

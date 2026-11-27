@@ -12,9 +12,11 @@ public class editstudent :IRequest<Response<string>>
     }
     public int id { get; set; }
     
-    public string Name { get; set; }
+    public string Nameen { get; set; }
+    public string Namear { get; set; }
 
-    public string Address { get; set; }
+    public string Addressar { get; set; }
+    public string Addressen { get; set; }
 
     public string phone_number { get; set; }
     
